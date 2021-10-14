@@ -16,17 +16,23 @@ public class Kata3_42 {
      */
     public static void main(String[] args) {
         Histogram<String> histogram = new Histogram();
-        histogram.increment("gmail.com");
-        histogram.increment("gmail.com");
-        histogram.increment("gmail.com");
-        histogram.increment("ulpgc.es");
-        histogram.increment("ulpgc.es");
-        histogram.increment("ull.es");
-        histogram.increment("hotmail.com");
-        histogram.increment("hotmail.com");
-        histogram.increment("hotmail.com");
-        histogram.increment("hotmail.com");
-        histogram.increment("hotmail.com");
+        int seed = (int)(Math.random()*100);
+        for (int i = 0; i<seed; i++) {
+            switch((int)(Math.random()*4)) {
+                case 0 :
+                    histogram.increment("gmail.com");
+                    break;
+                case 1 :
+                    histogram.increment("ulpgc.es");
+                    break;
+                case 2 :
+                    histogram.increment("ull.es");
+                    break;
+                case 3 :
+                    histogram.increment("hotmail.com");
+                    break;
+            }
+        }
         new HistogramDisplay(histogram).execute();
     }
     
